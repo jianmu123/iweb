@@ -1,1 +1,580 @@
-iweb-index
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="icon" type="text/css" href="img/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="css/base.css" />
+    <title>iweb在线课堂</title>
+    <style type="text/css">
+      /* 顶部条 */
+      .title {
+        width: 100%;
+        height: 28px;
+        background: #f9f9f9;
+        line-height: 28px;
+        text-align: right;
+        border: 1px solid #eeeeee;
+      }
+      .container {
+        width: 1000px;
+        /* background: greenyellow; */
+        margin: 0 auto;
+        /* border: 1px solid #aaaaaa; */
+      }
+
+      .title .container > a,
+      .title .container > span {
+        padding-left: 1em;
+      }
+      /*字体图标 默认色 */
+      .fa-star,
+      .fa-mobile,
+      .fa-envelope,
+      .fa-mobile-phone {
+        color: #ccd2d7;
+      }
+	  .title  a:hover .fa-star {
+		  color: #f60;
+	  }
+	  .title  a:hover .fa-mobile {
+	  		  color: #f60;
+	  }
+     
+      /* 反差色 */
+      .them-reverce {
+        color: #ff6600;
+      }
+	  .title .container a:hover {
+	     color: #f60;
+	   }
+      /* 搜索条 */
+      .searchbar {
+        width: 100%;
+        height: 90px;
+      }
+      .searchbar > .container {
+        padding: 21px 0 21px 0;
+        /* position: relative; */
+      }
+      /* 购物车 ,要比输入框先浮动*/
+      .container > .shopcar {
+        width: 140px;
+        height: 32px;
+        line-height: 32px;
+        text-align: center;
+        float: right;
+        margin-top: 9px;
+        margin-left: 26px;
+        background: #f9f9f9;
+        border: 1px solid #cccccc;
+        cursor: pointer;
+      }
+      /* 输入框 */
+      .container > .search {
+        float: right;
+        margin-top: 9px;
+      }
+      .container > .search > input {
+        width: 430px;
+        height: 32px;
+        padding: 0.8em;
+		vertical-align: middle;
+		border: 1px solid #CCCCCC;
+		outline: none;
+      }
+      .fa-search {
+        background: #57bc4c;
+        color: #f9f9f9;
+        font-size: 2em;
+        width: 50px;
+        height: 32px;
+        line-height: 32px;
+        text-align: center;
+		vertical-align: middle;
+      }
+      /* 购物车样式 */
+      .fa-shopping-cart,
+      .fa-chevron-down {
+        color: #57bc4c;
+        width: 19px;
+        height: 14px;
+        text-align: center;
+        line-height: 14px;
+		
+      }
+	  .fa-chevron-down{
+		  transition:transform .6s ;
+	  }
+	  /* 购物车鼠标划入效果 */
+		.container  .shopcar:hover .fa-chevron-down{
+			transform: rotate(180deg);
+		}
+      /* 导航条 */
+      .navbar {
+        width: 100%;
+        background: #57bc4c;
+        height: 40px;
+      }
+      .navbar > .container {
+        background: #57bc4c;
+        height: 40px;
+      }
+      .navbar > .container ul li {
+        float: left;
+      }
+      .navbar > .container ul li a {
+        display: block;
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+        padding: 0 24px;
+        font-size: 15px;
+        color: #fff;
+      }
+      .active {
+        background: #3da232;
+      }
+      .navbar > .container ul li a:hover {
+        background: #3da232;
+      }
+      /* 登陆注册 */
+      .land {
+        float: right;
+        width: 140px;
+		height: 40px;
+		text-align: center;
+		color: #fff;
+		line-height: 40px;
+		font-size: 15px;
+		background: #77C558;
+	  }
+	  .land a{
+		  color: #fff;
+	  }
+	  .land a:hover{
+		  color: #FFFF99;
+	  }
+	  /* 轮播图 */
+	  .banner{
+		  height: 380px;
+		  border: 3px solid #ddd;
+		  position: relative;
+	  }
+	  .banner ul li{
+		   width: 100%;
+		   height: 100%;
+		   position: absolute;
+	   }
+	  .banner ul li:nth-child(1){
+		  background: url(img/banner04.jpg) center 0px no-repeat;
+	  }
+	  .banner ul li:nth-child(2){
+	  		  background: url(img/banner02.jpg) center 0px no-repeat;
+	  }
+	  .banner ul li:nth-child(3){
+	  		  background: url(img/banner03.jpg) center 0px no-repeat;
+	  }
+	  .banner ul li:nth-child(4){
+	  		  background: url(img/banner01.jpg) center 0px no-repeat;
+	  }
+	
+	  .banner .pre{
+		  background: url(img/iconlist.png) no-repeat 10px -275px;
+		  position: absolute;
+		  width: 43px;
+		  height: 75px;
+		  top: 40%;
+		  left: 13%;
+		  background-color: #173B52;
+		  opacity: 0.3;
+		  text-align: center;
+		  visibility: hidden;
+		  cursor: pointer;
+	  }
+	   .banner .next{
+		  background: url(img/iconlist.png) no-repeat 10px -335px;
+		  position: absolute;
+		  width: 43px;
+		  height: 75px;
+		  top: 40%;
+		  left: 80%;
+		  background-color: #173B52;
+		  opacity: 0.3;
+		  visibility: hidden;
+		  cursor: pointer;
+	  }
+		.banner:hover .pre,
+		.banner:hover .next{
+			visibility: visible;
+		}
+		/* 轮播图圆点 */
+		.banner ul li a{ 
+			display: block;
+			width: 100%;
+			height: 100%;
+		 }
+		 .banner .pointer{
+			 position: absolute;
+			 top: 355px;
+			 width: 100%;
+			 /* background: red; */
+			 text-align: center;
+			 
+		 }
+		 .banner .pointer a{
+			display: inline-block;
+			width: 14px;
+			height: 14px;
+			border-radius: 50%;
+			background-color: #CCCCCC;
+			margin-right: 11px;
+		 }
+		.banner .pointer .orange{
+			 background-color: orange;
+			 }
+		/*主题内容  */
+		.newcourse,
+		.hotcourse,
+		.hotteacher{
+			width: 1000px;
+			height: 274px;
+			margin: 0 auto;
+			/* background-color: #CCCCCC; */
+			}
+		.hotcourse,.hotteacher{
+				margin-top: 20px;
+			}
+		.newtitle {
+			width: 1000px;
+			height: 60px;
+			/* background-color: #77C558; */
+			color: #6B6D6B;
+			font-weight: lighter;
+			border-bottom: 2px solid #CCCCCC;
+		}
+		.newtitle span{
+			float: left;
+			display: inline-block;
+			text-align: center;
+			width: 100px;
+			height: 40px;
+			margin-top: 20px;
+			border-bottom: 2px solid  #77C558;
+		}
+		.newtitle  a{
+			float: right;
+		    color: #6B6D6B;
+			font-weight: lighter;
+			margin-top: 30px;
+			font-size: 14px;
+		}
+		.newtitle  a:hover{
+			color: #FF3300;
+		}
+		
+		.newcourse ul li,
+		.hotcourse ul li{
+			float: left;
+			margin: 20px 40px 0 0;
+			width: 220px;
+			height: 214x;
+		}
+		.newcourse ul li:last-child{
+		 margin-right: 0;
+		}
+		.hotcourse ul li:last-child{
+		 margin-right: 0;
+		}
+		.a-text{
+		font-size: 14px;	
+		color: #555;
+		}
+		.a-text:hover{
+			color: #FF3300;
+		}
+		.teacher{
+			color: #999;
+		}
+		.money{
+			font-size: 16px;
+			color: #FF6600;
+			font-weight: bold;
+		}
+		/* 课程图片添加放大动画 */
+		.img_box{
+			display: inline-block;
+			width:220px;
+			height:138px;
+			overflow: hidden;
+			}
+		.newcourse ul li a img,
+		.hotcourse ul li a img{
+			width:100%;
+			transition: all 0.6s;
+		}
+		.newcourse ul li a img:hover,
+		.hotcourse ul li a img:hover{
+			transform: scale(1.2);
+		}
+		/* 名师堂 */
+		.hotteacher ul{
+			margin-top: 20px;
+		}
+		.hotteacher ul li{
+			float: left;
+			margin-right: 25px;
+		}
+		.hotteacher ul li:last-child{
+			margin-right: 0;
+		}
+		.hotteacher ul li {
+			text-align: center;
+		}
+		.hotteacher ul li p{
+			font-size: 14px;
+			margin: 8px 0 ;
+		}
+		.footer{
+			width: 100%;
+			height: 200px;
+			margin-top: 110px;
+		}
+		.footcontainer{
+			width: 1000px;
+			margin: 0 auto;
+			height: 200px;
+			background: chartreuse;
+		}
+    </style>
+  </head>
+  <body>
+    <!-- 顶部条 -->
+    <div class="title">
+      <div class="container">
+      <a href="#" >
+          <span class="fa fa-star"></span>
+          收藏i前端
+	  </a>
+        <a href="#">
+          <span class="fa fa-mobile fa-lg"></span>
+          <span class="them-reverce">下载手机客户端</span>
+        </a>
+        <span>
+          <span class="fa fa-envelope"></span>
+          反馈邮箱：iweb@tedu.cn
+        </span>
+        <span>
+          <span class="fa fa-mobile-phone fa-lg"></span>
+          客服热线：4008-200-200
+        </span>
+      </div>
+    </div>
+    <!-- 搜索条 -->
+    <div class="searchbar">
+      <div class="container">
+        <!-- LOGO -->
+        <a href="#"><img src="img/logo.png" alt="iweb在线课程" /></a>
+        <!-- 购物车 -->
+        <div class="shopcar" id="myCart">
+          <span class="fa fa-shopping-cart fa-lg" ></span>
+          我的购物车<b>(0)</b>
+          <span class="fa fa-chevron-down"></span>
+        </div>
+        <!-- 输入框 -->
+        <div class="search">
+          <input type="text" placeholder="课程搜索" /><span
+            class="fa fa-search fa-lg"
+          ></span>
+        </div>
+      </div>
+    </div>
+    <!--导航条  -->
+    <div class="navbar">
+      <div class="container">
+        <!-- 导航 -->
+        <div class="nav">
+          <ul>
+            <li class="active"><a href="#">首页</a></li>
+            <li><a href="#">全部课程</a></li>
+            <li><a href="#">基础课程</a></li>
+            <li><a href="#">核心课程</a></li>
+            <li><a href="#">进阶课程</a></li>
+            <li><a href="#">名师堂</a></li>
+            <li><a href="#">校区</a></li>
+          </ul>
+        </div>
+        <!-- 登陆注册 -->
+        <div class="land">
+            <a href="#">登陆</a>
+             |
+            <a href="#">注册</a>
+          </ul>
+        </div>
+      </div>
+	</div>
+	<!-- 轮播图 -->
+	<div class="banner">
+	<ul>
+			<li><a href="#"></a></li>
+			<li><a href="#"></a> </li>
+			<li><a href="#"></a></li>
+			<li><a href="#"></a> </li>
+	</ul>
+	<span class="pre"></span>
+	<span class="next"></span>
+	<!-- 小圆点 -->
+	<div class="pointer">
+		<a href="javascript:;" class="orange"></a>
+		<a href="javascript:;" ></a>
+		<a href="javascript:;"></a>
+		<a href="javascript:;"></a>
+	</div>
+	</div>
+	<!-- 主体内容 -->
+	<div class="main">
+		<!-- 新课程 -->
+		<div class="newcourse">
+			<h2 class="newtitle">
+				<span>最新课程</span>
+				<a href="#">更多</a>
+			</h2>
+			<ul>
+				<li>
+					<a href="#" class="img_box"><img src="img/course/01.jpg"></a> 
+					<a href="#" class="a-text">12-微信小程序开发</a>
+					<p class="teacher">讲师：程涛</p>
+					<p class="money">￥599.00</p>
+				</li>
+				<li>
+					<a href="#" class="img_box"><img src="img/course/02.jpg"></a>
+					<a href="#" class="a-text">11-Unity地形搭建</a>
+					<p class="teacher">讲师：张东</p>
+					<p class="money">￥600.00</p>
+				</li>
+				<li>
+					<a href="#" class="img_box"><img src="img/course/03.jpg"></a> 
+					<a href="#" class="a-text">10-UI控件之基础控件</a>
+					<p class="teacher">讲师：李然</p>
+					<p class="money">￥450.00</p>
+				</li>
+				<li>
+					<a href="#" class="img_box"><img src="img/course/04.jpg"></a>
+					<a href="#" class="a-text">12-微信小程序高级</a>
+					<p class="teacher">讲师：成亮</p>
+					<p class="money">￥200.00</p>
+				</li>
+			</ul>
+		</div>
+		<!-- 热门课程 -->
+		<div class="hotcourse">
+			<h2 class="newtitle">
+				<span>热门课程</span>
+				<a href="#">更多</a>
+			</h2>
+			<ul>
+				<li>
+					<a href="#" class="img_box"><img src="img/course/05.jpg"></a> 
+					<a href="#" class="a-text">12-手机图标绘制</a>
+					<p class="teacher">讲师：程涛</p>
+					<p class="money">￥200.00</p>
+				</li>
+				<li>
+					<a href="#" class="img_box"><img src="img/course/06.jpg"></a>
+					<a href="#" class="a-text">11-jQuery操作DOM</a>
+					<p class="teacher">讲师：张东</p>
+					<p class="money">￥450.00</p>
+				</li>
+				<li>
+					<a href="#" class="img_box"><img src="img/course/07.jpg"></a> 
+					<a href="#" class="a-text">10-一周上手小程序</a>
+					<p class="teacher">讲师：李然</p>
+					<p class="money">￥900.00</p>
+				</li>
+				<li>
+					<a href="#" class="img_box"><img src="img/course/08.jpg"></a>
+					<a href="#" class="a-text">12-零基础手绘教程</a>
+					<p class="teacher">讲师：成亮</p>
+					<p class="money">￥1200.00</p>
+				</li>
+			</ul>
+		</div>
+		<!-- 名师堂 -->
+		<div class="hotteacher">
+			<h2 class="newtitle">
+				<span>名师堂</span>
+				<a href="#">更多</a>
+			</h2>
+			<ul>
+				<li>
+					<a href="#" class="teacher-box"><img src="img/teacher/cl.jpg"></a> 	
+					<p>讲师：陈亮</p>
+					<span>主讲：WEB全栈开发</span>
+				</li>
+				<li>
+					<a href="#" class="teacher-box"><img src="img/teacher/ct.jpg"></a>
+					<p>讲师：程涛</p>
+					<span>主讲：高级网页设计</span>
+				</li>
+				<li>
+					<a href="#" class="teacher-box"><img src="img/teacher/jyx.jpg"></a>
+					<p>讲师：纪盈鑫</p>
+					<span>主讲：JS高级编程</span>
+				</li>
+				<li>
+					<a href="#" class="teacher-box"><img src="img/teacher/lr.jpg"></a>
+					<p>讲师：李然</p>
+					<span>主讲：移动APP开发</span>
+				</li>
+				<li>
+					<a href="#" class="teacher-box"><img src="img/teacher/wh.jpg"></a>
+					<p>讲师：张东</p>
+					<span>主讲：前端框架开发</span>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- 底部区域 -->
+	<div class="footer">
+		<div class="footcontainer">
+			<div class="foot">
+				<span>关于i前端</span>
+				<ul>
+					<li>发展历史</li>
+					<li>管理团队</li>
+					<li>企业文化</li>
+					<li>加入我们</li>
+				</ul>
+			</div>
+			<div class="foot">
+				<span>新手帮助</span>
+				<ul>
+					<li>学员账号</li>
+					<li>选课流程</li>
+					<li>网报流程</li>
+					<li>上课地点</li>
+				</ul>
+			</div>
+			<div class="foot">
+				<span>常见问题</span>
+				<ul>
+					<li>如何注册</li>
+					<li>如何收索</li>
+					<li>如何报名</li>
+					<li>如何缴费</li>
+				</ul>
+			</div>
+			<div class="foot">
+				<span>联系我们</span>
+				<ul>
+					<li>校区电话</li>
+					<li>意见建议</li>
+					<li>联系邮箱</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+  </body>
+</html>
