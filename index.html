@@ -129,7 +129,7 @@
 			visibility: hidden;
 		}
 	  /* 购物车鼠标划入效果 */
-	    .shopcar:hover .fa-chevron-down{
+	    .cart-container:hover .fa-chevron-down{
 			transform: rotate(180deg);
 		}
 	    .cart-container:hover .dropdown{
@@ -371,6 +371,8 @@
 			width: 1000px;
 			margin: 0 auto;
 			height:152px;
+			border-bottom: 1px solid #ddd;
+			margin-bottom: 5px;
 		}
 		.footcontainer .foot{
 			float: left;
@@ -393,10 +395,31 @@
 			left: 956px;
 		}
 		.footphone .phone{
-			display: block;
 			width: 42px;
 		    height: 48px;
 			background: url(img/iconlist.png) no-repeat 0px -402px;
+			position: absolute;
+			top:-5px ;
+			left: -100px;
+		}
+		.footphone .one{
+			display: inline-block;
+			width: 80px;
+			position: absolute;
+			top: -10px;
+			left: -45px;
+			font-size: 18px;
+		}
+		.footphone .two{
+			position: absolute;
+			width: 250px;
+			top: 28px;
+			left: -45px;
+			font-size: 18px;
+		}
+		.footer .information {
+			text-align: center;
+			color: #9999;
 		}
     </style>
   </head>
@@ -533,25 +556,25 @@
 			<ul>
 				<li>
 					<a href="#" class="img_box"><img src="img/course/05.jpg"></a> 
-					<a href="#" class="a-text">12-手机图标绘制</a>
+					<a href="#" class="a-text">2-手机图标绘制</a>
 					<p class="teacher">讲师：程涛</p>
 					<p class="money">￥200.00</p>
 				</li>
 				<li>
 					<a href="#" class="img_box"><img src="img/course/06.jpg"></a>
-					<a href="#" class="a-text">11-jQuery操作DOM</a>
+					<a href="#" class="a-text">8-jQuery操作DOM</a>
 					<p class="teacher">讲师：张东</p>
 					<p class="money">￥450.00</p>
 				</li>
 				<li>
 					<a href="#" class="img_box"><img src="img/course/07.jpg"></a> 
-					<a href="#" class="a-text">10-一周上手小程序</a>
+					<a href="#" class="a-text">115-一周上手小程序</a>
 					<p class="teacher">讲师：李然</p>
 					<p class="money">￥900.00</p>
 				</li>
 				<li>
 					<a href="#" class="img_box"><img src="img/course/08.jpg"></a>
-					<a href="#" class="a-text">12-零基础手绘教程</a>
+					<a href="#" class="a-text">24-零基础手绘教程</a>
 					<p class="teacher">讲师：成亮</p>
 					<p class="money">￥1200.00</p>
 				</li>
@@ -630,12 +653,15 @@
 					<li><a href="#">联系邮箱</a></li>
 				</ul>
 			</div>
-		</div>
-		<div class="footphone">
+			<div class="footphone">
 			<spasn class="phone"></spasn>
-			<span>客服热线</span>
-			<span>4008-220-220(9:00-24:00)</span>
-			<p></p>
+			<span class="one">客服热线</span>
+			<span class="two">4008-220-220(9:00-24:00)</span>
+			</div>
+		</div>
+		<div class="information" >
+			<span>Copyright © 2016 iqianduan.com, All Rights Reserved 版权所有</span><br>
+			<span>北京前端教育科技有限公司　京ICP备123456号-1 京公网安备110180201608号</span>
 		</div>
 	</div>
   </body>
